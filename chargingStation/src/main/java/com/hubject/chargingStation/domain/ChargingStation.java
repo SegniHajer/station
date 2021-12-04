@@ -13,10 +13,8 @@ public class ChargingStation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "zip_code")
     private String zipCode;
 
-    @Column(name = "geolocation")
     private Point geoLocation;
 
     public ChargingStation() {
