@@ -1,0 +1,45 @@
+<div class="col-md-6 user-container">
+    <h2 class="text-center">Add A charging station</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="zipCode">zipCode:</label>
+        <input type="text" formControlName="zipCode" placeholder="zip code" name="zipCode" class="form-control"
+               id="zipCode">
+      </div>
+      <br/>
+      <div class="form-group">
+        <label for="geoLocation">geoLocation:</label>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="latitude" class="label">Latitude</label>
+            <input type="text"
+                   nbInput
+                   fullWidth
+                   id="latitude"
+                   placeholder="Entrer a valid latitude"
+                   formControlName="latitude">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="longitude" class="label">Longitude</label>
+            <input type="text"
+                   nbInput
+                   fullWidth
+                   id="longitude"
+                   formControlName="longitude"
+                   placeholder="Enter a valid longitude">
+
+
+          </div>
+        </div>
+      </div>
+  
+      </div>
+  
+      <br/>
+      <button class="btn btn-success">Add</button>
+    </form>
+  </div>
+
