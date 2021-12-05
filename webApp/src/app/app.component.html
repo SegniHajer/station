@@ -1,0 +1,36 @@
+
+
+
+<div align='center'><h1>ChargingStation Application with Angular</h1></div>
+<h2>List of my stations</h2>
+<div>
+  <table class="table" style="width: 80%">
+    <tr>
+      <th>zipCode</th>
+      <th>geoLocation</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let chargingStation of stations">
+      <td>
+        {{chargingStation.zipCode}}
+      </td>
+      <td>
+        {{chargingStation.geoLocation}}
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <p>
+    <button (click)="addChargingStation()"> Add a station</button>
+    <button (click)="addChargingStation()"> search  By Postal Code</button>
+  </p>
+</div>
+
+<router-outlet></router-outlet>
+<agm-map [latitude]="latitude" [longitude]="longitude">
+  <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+</agm-map>
+
+<h1>Angular Google Maps (AGM) Demo</h1>
+<p><a href="https://angular-maps.com/" target="_blank">Official Website</a></p>
