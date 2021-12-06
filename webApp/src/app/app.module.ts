@@ -9,13 +9,17 @@ import { AddChargingStationComponent } from './chargingStation/add-charging-stat
 import { StationDetailsComponent } from './station-details/station-details.component';
 import { StationListComponent } from './station-list/station-list.component';
 import { from } from 'rxjs';
+import { SearchComponent } from './search/search.component';
+import * as $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddChargingStationComponent,
     StationDetailsComponent,
-    StationListComponent
+    StationListComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

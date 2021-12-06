@@ -46,7 +46,7 @@ public class ChargingStationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure") })
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ChargingStation> getChargingStation(@PathVariable long id) {
+    public ResponseEntity<ChargingStation> getChargingStationById(@PathVariable long id) {
         ChargingStation chargingStation = chargingStationRepository.findById(id);
         if(chargingStation==null) {
             return ResponseEntity.notFound().build();
@@ -72,4 +72,41 @@ public class ChargingStationController {
         }
         return ResponseEntity.accepted().body(chargingStations);
     }
+
+    @ApiOperation(value = "Get chargingStation by zip code", nickname = "getChargingStation")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success"),
+            @ApiResponse(code = 401, message = "Unauthorized"),
+            @ApiResponse(code = 403, message = "Forbidden"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure") })
+        @GetMapping(value = "/stations/zipCode", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ChargingStation>> getChargingStationByZipCode(@RequestParam(value = "zipCode", required = false)
+                                                                                         String zipCode) {
+
+        List<ChargingStation> chargingStations =  chargingStationRepository.findByZipCode(zipCode);
+        if(chargingStations==null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.accepted().body(chargingStations);
+    }
+/*
+    @ApiOperation(value = "Get chargingStation by zip code", nickname = "getChargingStation")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success"),
+            @ApiResponse(code = 401, message = "Unauthorized"),
+            @ApiResponse(code = 403, message = "Forbidden"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure") })
+    @GetMapping(value = "/search/Area", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ChargingStation>> searchStationsByArea(@RequestParam(value = "latitude", required = false) Double longitude,
+            @RequestParam(value = "longitude", required = false)Double latitude,@RequestParam(value = "perimeter", required = false) Double perimeter ) {
+        Point geoLocation= new Point(latitude,longitude);
+      List<ChargingStation> chargingStations =  chargingStationRepository.findByArea(geoLocation,perimeter);
+        if(chargingStations==null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.accepted().body(chargingStations);
+    }*/
 }

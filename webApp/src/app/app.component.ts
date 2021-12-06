@@ -60,18 +60,31 @@ export class AppComponent implements OnInit  {
       });
     });
   }
-    // Get Current Location Coordinates
     private setCurrentLocation() {
       if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition((position) => {
-          this.latitude = position.coords.latitude;
-          this.longitude = position.coords.longitude;
-          this.zoom = 15;
-        });
+         this.latitude = position.coords.latitude;
+         this.longitude = position.coords.longitude;
+         this.zoom = 15;
+       });
       }
     }
   addChargingStation(): void {
     this.router.navigate(['add-station'])
+      .then((e) => {
+        if (e) {
+          console.log("Navigation is successful!");
+        } else {
+          console.log("Navigation has failed!");
+        }
+      });
+  };
+  openPopup()
+  {
+    $("#myModal").modal("show");
+  }
+  searchChargingStationByZip(): void {
+    this.router.navigate(['search-station'])
       .then((e) => {
         if (e) {
           console.log("Navigation is successful!");

@@ -7,33 +7,32 @@
                id="zipCode">
       </div>
       <br/>
-      <div class="form-group">
-        <label for="geoLocation">geoLocation:</label>
+      <div class="form-group" formGroupName="geoLocation">
+        <h3>geoLocation:</h3>
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="latitude" class="label">Latitude</label>
+            <label for="x" class="label">Latitude</label>
             <input type="text"
                    nbInput
                    fullWidth
-                   id="latitude"
+                   id="x"
                    placeholder="Entrer a valid latitude"
-                   formControlName="latitude">
+                   formControlName="x">
           </div>
         </div>
         <div class="col-sm-6">
           <div class="form-group">
-            <label for="longitude" class="label">Longitude</label>
+            <label for="y" class="label">Longitude</label>
             <input type="text"
                    nbInput
                    fullWidth
-                   id="longitude"
-                   formControlName="longitude"
+                   id="y"
+                   formControlName="y"
                    placeholder="Enter a valid longitude">
-
-
           </div>
         </div>
+
       </div>
   
       </div>

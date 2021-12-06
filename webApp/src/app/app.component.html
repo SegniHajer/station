@@ -1,13 +1,14 @@
 
 
-
-<div align='center'><h1>ChargingStation Application with Angular</h1></div>
+<div align='center'><img src="assets/charging-station-solid.svg"width="100" height="100"><h1>ChargingStation Application with Angular</h1></div>
 <h2>List of my stations</h2>
 <div>
   <table class="table" style="width: 80%">
     <tr>
       <th>zipCode</th>
-      <th>geoLocation</th>
+      <th>Geolocation: latitude</th>
+      <th>Geolocation: longitude</th>
+
       <th></th>
     </tr>
     <tr *ngFor="let chargingStation of stations">
@@ -15,16 +16,29 @@
         {{chargingStation.zipCode}}
       </td>
       <td>
-        {{chargingStation.geoLocation}}
+        <button btn='disabled'>{{chargingStation.geoLocation.x}}</button>
+    
       </td>
+      <td>
+        <button>{{chargingStation.geoLocation.y}}</button>
+    
+      </td>
+      
     </tr>
   </table>
 </div>
 <div>
-  <p>
-    <button (click)="addChargingStation()"> Add a station</button>
-    <button (click)="addChargingStation()"> search  By Postal Code</button>
-  </p>
+  
+    <div class="row">
+      <div class="col-sm-6">
+    <button type="button" class="btn btn-success" (click)="addChargingStation()"> Add a station</button>
+        </div>
+    <div class="col-sm-6">
+    <button type="button" class="btn btn-primary" (click) = "openPopup()">
+      Search By Code Postal
+    </button>
+    </div>
+  </div>
 </div>
 
 <router-outlet></router-outlet>
@@ -32,5 +46,4 @@
   <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
 </agm-map>
 
-<h1>Angular Google Maps (AGM) Demo</h1>
-<p><a href="https://angular-maps.com/" target="_blank">Official Website</a></p>
+

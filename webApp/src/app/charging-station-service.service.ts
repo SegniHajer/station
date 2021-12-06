@@ -13,9 +13,9 @@ export class ChargingStationService {
   constructor(private http: HttpClient) {
   }
 
-getStations(): Observable<any> {
-  return this.http.get(this.url+'stations/');
-}
+  getStations(): Observable<any> {
+    return this.http.get(this.url+'stations/');
+  }
   addStation(station: Object): Observable<Object> {
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(station);
@@ -25,8 +25,11 @@ getStations(): Observable<any> {
  
   //  return this.http.post(`${this.url}`, station);
  // }
- getStationById(id: number): Observable<ChargingStation>{
-  return this.http.get<ChargingStation>(`${this.url}${id}`);
-}
- 
+  getStationById(id: number): Observable<ChargingStation>{
+    return this.http.get<ChargingStation>(`${this.url}${id}`);
+  }
+  searchStationByZipCode(zipCode: String): Observable<ChargingStation> {
+    return this.http.get<ChargingStation>(this.url+'/stations/zipCode');
+  }
+  
 }

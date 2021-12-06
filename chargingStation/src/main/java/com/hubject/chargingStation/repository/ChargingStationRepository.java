@@ -4,6 +4,8 @@ import com.hubject.chargingStation.domain.ChargingStation;
 import org.springframework.data.geo.Point;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 @Repository
 public interface ChargingStationRepository extends JpaRepository<ChargingStation, String>, JpaSpecificationExecutor<ChargingStation> {
     ChargingStation findById(long Id);
-
+    List<ChargingStation> findByZipCode(String zipCode);
     List<ChargingStation> findByGeoLocation(Point point);
+
 }
