@@ -99,10 +99,9 @@ public class ChargingStationController {
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure") })
     @GetMapping(value = "/search/Area", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<ChargingStation>> searchStationsByArea(@RequestParam(value = "latitude", required = false) Double longitude,
-            @RequestParam(value = "longitude", required = false)Double latitude,@RequestParam(value = "perimeter", required = false) Double perimeter ) {
-        Point geoLocation= new Point(latitude,longitude);
-      List<ChargingStation> chargingStations =  chargingStationRepository.findByArea(geoLocation,perimeter);
+    public ResponseEntity<List<ChargingStation>> searchStationsByArea(@RequestParam(value = "latitude", required = false) Double latitude,
+            @RequestParam(value = "longitude", required = false)Double longitude,@RequestParam(value = "perimeter", required = false) Double perimeter ) {
+      List<ChargingStation> chargingStations =  chargingStationRepository.findByArea(latitude,longitude,perimeter);
         if(chargingStations==null) {
             return ResponseEntity.notFound().build();
         }

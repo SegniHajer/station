@@ -17,4 +17,8 @@ public interface ChargingStationRepository extends JpaRepository<ChargingStation
     List<ChargingStation> findByZipCode(String zipCode);
     List<ChargingStation> findByGeoLocation(Point point);
 
+ //   String HAVERSINE_FORMULA = "(6371 * acos(cos(radians(:x)) * cos(radians(s.geo_location.x)) *" +
+  //          " cos(radians(s.geo_location.y) - radians(:y)) + sin(radians(:x)) * sin(radians(s.x))))";
+ //   @Query("SELECT s FROM charging_station s WHERE " + HAVERSINE_FORMULA + " < :perimeter ORDER BY "+ HAVERSINE_FORMULA + " DESC")
+  //  List<ChargingStation> findByArea(@Param("x") double x, @Param("y") double y, @Param("perimeter") double  perimeter);
 }
