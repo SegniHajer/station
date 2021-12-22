@@ -1,4 +1,4 @@
-# chargingStationCodingTest
+# chargingStation
 project
 
 Some photos are attached to the project in order to check the creation, search by Id and integration of google maps from google Cloud
