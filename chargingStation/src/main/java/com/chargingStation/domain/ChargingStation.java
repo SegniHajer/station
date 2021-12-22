@@ -1,4 +1,4 @@
-package com.hubject.chargingStation.domain;
+package com.chargingStation.domain;
 
 
 import org.springframework.data.geo.Point;

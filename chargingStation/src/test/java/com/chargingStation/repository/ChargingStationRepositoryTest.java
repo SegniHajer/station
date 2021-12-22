@@ -1,7 +1,6 @@
-package com.hubject.chargingStation.repository;
+package com.chargingStation.repository;
 
-import com.hubject.chargingStation.domain.ChargingStation;
-import com.hubject.chargingStation.repository.ChargingStationRepository;
+import com.chargingStation.domain.ChargingStation;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

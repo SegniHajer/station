@@ -1,7 +1,7 @@
-package com.hubject.chargingStation.rest;
+package com.chargingStation.rest;
 
-import com.hubject.chargingStation.domain.ChargingStation;
-import com.hubject.chargingStation.repository.ChargingStationRepository;
+import com.chargingStation.domain.ChargingStation;
+import com.chargingStation.repository.ChargingStationRepository;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;

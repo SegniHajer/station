@@ -1,11 +1,9 @@
-package com.hubject.chargingStation.repository;
+package com.chargingStation.repository;
 
-import com.hubject.chargingStation.domain.ChargingStation;
+import com.chargingStation.domain.ChargingStation;
 import org.springframework.data.geo.Point;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

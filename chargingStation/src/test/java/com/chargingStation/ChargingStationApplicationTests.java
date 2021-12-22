@@ -1,4 +1,4 @@
-package com.hubject.chargingStation;
+package com.chargingStation;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
