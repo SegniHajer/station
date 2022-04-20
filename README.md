@@ -1,5 +1,13 @@
 # chargingStation
 
+Main Tasks:
+- CRUD + Search Methods.
+ 
+- Integrate google maps API with Angular 4.
+
+
+
+
 Some photos are attached to the project in order to check the creation, search by Id and integration of google maps from google Cloud
 
 the architecture of the repository is :
