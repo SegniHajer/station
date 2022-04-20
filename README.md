@@ -21,6 +21,6 @@ A MySQL database is used, the set up is under chargingStation\src\main\resources
 
 
 
-# to search a charging station by Id:
+# to search for a charging station by Id:
 
 ![Alt text](https://github.com/SegniHajer/station/blob/master/searchById.PNG "Optional title")
