@@ -2,6 +2,7 @@ package com.chargingStation.rest;
 
 import com.chargingStation.domain.ChargingStation;
 import com.chargingStation.repository.ChargingStationRepository;
+import com.chargingStation.service.ChargingStationService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
@@ -18,11 +19,11 @@ import java.util.List;
 public class ChargingStationController {
 
     @Autowired
-    ChargingStationRepository chargingStationRepository;
+    ChargingStationService chargingStationService;
 
     @GetMapping("/stations/")
     public Iterable<ChargingStation> getAllChargingStations() {
-        return chargingStationRepository.findAll();
+        return chargingStationService.findAll();
     }
 
 
@@ -35,7 +36,7 @@ public class ChargingStationController {
             @ApiResponse(code = 500, message = "Failure") })
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ChargingStation> createChargingStation(@RequestBody ChargingStation chargingStation){
-        chargingStationRepository.save(chargingStation);
+        chargingStationService.save(chargingStation);
         return ResponseEntity.ok(null);
     }
     @ApiOperation(value = "Get chargingStation by id", nickname = "getChargingStation")
@@ -47,7 +48,7 @@ public class ChargingStationController {
             @ApiResponse(code = 500, message = "Failure") })
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ChargingStation> getChargingStationById(@PathVariable long id) {
-        ChargingStation chargingStation = chargingStationRepository.findById(id);
+        ChargingStation chargingStation = chargingStationService.findById(id);
         if(chargingStation==null) {
             return ResponseEntity.notFound().build();
         }
@@ -66,7 +67,7 @@ public class ChargingStationController {
                                                                                  @RequestParam(value = "y", required = false)Double y
                                                                                 ) {
        Point geoLocation= new Point(x,y);
-        List<ChargingStation> chargingStations =  chargingStationRepository.findByGeoLocation(geoLocation);
+        List<ChargingStation> chargingStations =  chargingStationService.findByGeoLocation(geoLocation);
         if(chargingStations==null) {
             return ResponseEntity.notFound().build();
         }
@@ -84,7 +85,7 @@ public class ChargingStationController {
     public ResponseEntity<List<ChargingStation>> getChargingStationByZipCode(@RequestParam(value = "zipCode", required = false)
                                                                                          String zipCode) {
 
-        List<ChargingStation> chargingStations =  chargingStationRepository.findByZipCode(zipCode);
+        List<ChargingStation> chargingStations =  chargingStationService.findByZipCode(zipCode);
         if(chargingStations==null) {
             return ResponseEntity.notFound().build();
         }
