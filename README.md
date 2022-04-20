@@ -15,6 +15,12 @@ A MySQL database is used, the set up is under chargingStation\src\main\resources
 
 
 
-
+# to create a new charging station
 
 ![Alt text](https://github.com/SegniHajer/station/blob/master/add%20station.PNG "Optional title")
+
+
+
+# to search a charging station by Id:
+
+![Alt text](https://github.com/SegniHajer/station/blob/master/searchById.PNG "Optional title")
