@@ -1,4 +1,4 @@
-# chargingStation
+# chargingStation : java, springBoot,Restfull WebServices MySQL
 # the architecture of the repository is :
 
  1- chargingStation. the backend part developement
