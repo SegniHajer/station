@@ -12,3 +12,4 @@ To test the backend part, I attached a postman collection that contains ready to
 
 A MySQL database is used, the set up is under chargingStationCodingTest\chargingStation\src\main\resources.
 
+![Alt text](https://github.com/SegniHajer/station/blob/master/add%20station.PNG "Optional title")
